@@ -45,8 +45,9 @@ public class UserDAOTestCase {
 		
 		user.setName("indhu");
 		user.setPassword("indhu");
-		user.setRole("ROLE_USER");
-		user.setContact("7868841868");
+		user.setEmail("email");
+		user.setUsername("username");
+		user.setConfirm("confirm");
 		boolean flag = userDAO.save(user);
 		
 		System.out.println(flag);
