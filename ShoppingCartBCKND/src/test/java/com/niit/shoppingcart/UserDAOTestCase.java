@@ -7,7 +7,9 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.niit.shoppingcart.dao.RoleDAO;
 import com.niit.shoppingcart.dao.UserDAO;
+import com.niit.shoppingcart.domain.Role;
 import com.niit.shoppingcart.domain.User;
 
 public class UserDAOTestCase {
@@ -17,6 +19,13 @@ public class UserDAOTestCase {
 	@Autowired static UserDAO userDAO;
 
 	@Autowired static User user;
+	
+	@Autowired
+	static RoleDAO roleDAO;
+
+	@Autowired
+	static Role role;
+
 
 	/*public UserDAOTestCase() {
 		initialize();
@@ -38,6 +47,10 @@ public class UserDAOTestCase {
 
 		user = (User) context.getBean("user");
 
+		roleDAO = (RoleDAO) context.getBean("RoleDAO");
+
+		role = (Role) context.getBean("role");
+
 	}
 
 	@Test
@@ -48,6 +61,22 @@ public class UserDAOTestCase {
 		user.setEmail("email");
 		user.setUsername("username");
 		user.setConfirm("confirm");
+		user.setEnabled(true);
+		
+		role.setMobileNumber("12346");
+		role.setRole("ADMIN");
+		role.setEmail("hi@bye.com");
+		role.setRole("user");
+		role.setUsername("kishore");
+
+		user.setRole(role);
+		role.setUser(user);
+
+		roleDAO.save(role);
+
+
+		
+		
 		boolean flag = userDAO.save(user);
 		
 		System.out.println(flag);

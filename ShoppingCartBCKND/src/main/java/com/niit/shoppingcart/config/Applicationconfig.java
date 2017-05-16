@@ -16,14 +16,17 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.shoppingcart.dao.CategoryDAO;
 import com.niit.shoppingcart.dao.ProductDAO;
+import com.niit.shoppingcart.dao.RoleDAO;
 import com.niit.shoppingcart.dao.SupplierDAO;
 import com.niit.shoppingcart.dao.UserDAO;
 import com.niit.shoppingcart.daoimpl.CategoryDAOImpl;
 import com.niit.shoppingcart.daoimpl.ProductDAOImpl;
+import com.niit.shoppingcart.daoimpl.RoleDAOImpl;
 import com.niit.shoppingcart.daoimpl.SupplierDAOImpl;
 import com.niit.shoppingcart.daoimpl.UserDAOImpl;
 import com.niit.shoppingcart.domain.Category;
 import com.niit.shoppingcart.domain.Product;
+import com.niit.shoppingcart.domain.Role;
 import com.niit.shoppingcart.domain.Supplier;
 import com.niit.shoppingcart.domain.User;
 
@@ -73,7 +76,7 @@ public class Applicationconfig {
 		sessionBuilder.addAnnotatedClass(Category.class);
 		sessionBuilder.addAnnotatedClass(Product.class);
 		sessionBuilder.addAnnotatedClass(Supplier.class);
-		
+		sessionBuilder.addAnnotatedClass(Role.class);
 	
 		return sessionBuilder.buildSessionFactory();
 	}
@@ -115,5 +118,10 @@ public class Applicationconfig {
 	{
 		return new SupplierDAOImpl(sessionFactory);
 		
+	}
+	@Autowired(required = true)
+	@Bean(name = "RoleDAO")
+	public RoleDAO getRoleDAO(SessionFactory sessionFactory) {
+		return new RoleDAOImpl(sessionFactory);
 	}
 }

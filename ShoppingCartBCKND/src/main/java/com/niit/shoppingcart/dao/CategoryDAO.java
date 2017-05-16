@@ -13,9 +13,6 @@ public interface CategoryDAO {
 
 	//public boolean delete(Category category);
 
-	// get all users - list
-	public boolean validate(String id, String description);
-
 	public List<Category> list();
 
 	// get category details based on userID
