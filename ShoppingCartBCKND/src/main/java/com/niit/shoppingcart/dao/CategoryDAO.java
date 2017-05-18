@@ -18,4 +18,6 @@ public interface CategoryDAO {
 	// get category details based on userID
 
 	public Category get(String id);
+	
+	public void deleteById(String categoryId);
 }

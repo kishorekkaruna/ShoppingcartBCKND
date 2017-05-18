@@ -36,6 +36,7 @@ import com.niit.shoppingcart.domain.User;
 @EnableTransactionManagement
 public class Applicationconfig {
 	
+//	database
 	@Autowired
 	@Bean(name = "dataSource")
 	public DataSource getH2DataSource() {
@@ -53,7 +54,7 @@ public class Applicationconfig {
 		return dataSource;
 	}
 
-	
+//databaseconfiguration	
 	private Properties getHibernateProperties() {
 		
 		Properties properties = new Properties();

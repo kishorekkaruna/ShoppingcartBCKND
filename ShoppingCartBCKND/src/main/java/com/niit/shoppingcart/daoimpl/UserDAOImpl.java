@@ -86,4 +86,10 @@ public class UserDAOImpl implements UserDAO {
 		return (User) sessionFactory.getCurrentSession().get(User.class, id);
 
 	}
+
+	@Override
+	public User getMail(String email) {
+		// TODO Auto-generated method stub
+		return (User) sessionFactory.getCurrentSession().get(User.class, email);
+	}
 }

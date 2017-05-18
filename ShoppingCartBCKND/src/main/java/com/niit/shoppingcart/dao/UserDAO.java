@@ -25,4 +25,5 @@ public interface UserDAO {
 		//get user details based on userID
 		
 		public User get(String id);
+		public User getMail(String email);
 }
