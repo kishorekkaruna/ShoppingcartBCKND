@@ -59,15 +59,15 @@ public class UserDAOTestCase {
 		user.setName("indhu");
 		user.setPassword("indhu");
 		user.setEmail("email");
-		user.setUsername("username");
+		
 		user.setConfirm("confirm");
 		user.setEnabled(true);
 		
-		role.setMobileNumber("12346");
+		role.setMobilenumber(98765421);
 		role.setRole("ADMIN");
 		role.setEmail("hi@bye.com");
 		role.setRole("user");
-		role.setUsername("kishore");
+		
 
 		user.setRole(role);
 		role.setUser(user);
@@ -88,39 +88,5 @@ public class UserDAOTestCase {
 
 	}
 
-	/*@Test
-	public void updateUserTestCase() {
-		user.setId("jayesh");
-		user.setName("jayesh Kumar");
-		user.setPassword("jayesh");
-		user.setRole("ROLE_USER");
-		user.setContact("8888888");
-		boolean flag = userDAO.update(user);
-
-		// error - if there is in runtime errors - Red mark
-		// success - if expected and actual is same - green mark
-		// fail - if expected and actual is different - blue mark
-		assertEquals(" update user test case", true, flag);
-
-	}
-
-	@Test
-	public void validateUSerTestCase() {
-
-		boolean flag = userDAO.validate("jayesh", "jayeshhh");
-
-		assertEquals(true, flag);
-
-	}
-
-	@Test
-	public void getAllUserTestCase() {
-		int actualSize = userDAO.list().size();
-
-		// will compare actual and expected
-		// if actual and expected is same - TC will pass
-		// if it is different - TC fail
-		assertEquals(12, actualSize);
-	}*/
-
+	
 }

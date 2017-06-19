@@ -16,17 +16,33 @@ public class Product {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String id;
+	private String pid;
 	@Column(name="name")
-	private String name;
-	private String price;
+	private String pname;
+	private int price;
 	private String category;
+	private String supplier;
 	private String date;
-	public String getDate() {
-		return date;
+	private int quantity;
+	
+	
+	public String getPid() {
+		return pid;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	public String getCategory() {
 		return category;
@@ -34,25 +50,24 @@ public class Product {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public String getId() {
-		return id;
+	public String getDate() {
+		return date;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setDate(String date) {
+		this.date = date;
 	}
-	public String getName() {
-		return name;
+	public int getQuantity() {
+		return quantity;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
-	public String getPrice() {
-		return price;
+	public String getSupplier() {
+		return supplier;
 	}
-	public void setPrice(String price) {
-		this.price = price;
+	public void setSupplier(String supplier) {
+		this.supplier = supplier;
 	}
 	
-
 	
 }

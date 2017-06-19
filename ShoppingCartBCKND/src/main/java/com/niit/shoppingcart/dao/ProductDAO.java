@@ -6,18 +6,14 @@ import com.niit.shoppingcart.domain.Product;
 
 public interface ProductDAO {
 	
-	public boolean save(Product product);
-
-	// update the product details - update
-	public boolean update(Product product);
-
-	//public boolean delete(Product product);
+	public void save(Product product);
+	public void update(Product product);
+	
 	public boolean validate(String id, String password);
-	// get all users - list
-
+	
 	public List<Product> list();
 
-	// get product details based on userID
-
-	public Product get(String id);
-}
+	public Product get(String pid);
+	public void deleteById(String productId);
+	public List<Product> getByCategory(String category);
+	}

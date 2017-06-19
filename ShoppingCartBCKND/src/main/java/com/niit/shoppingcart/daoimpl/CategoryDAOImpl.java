@@ -42,7 +42,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Transactional
 	public boolean update(Category category) {
 		try {
-			sessionFactory.getCurrentSession().update(category);
+			sessionFactory.getCurrentSession().saveOrUpdate(category);
 		} catch (Exception e) {
 			// if any excpetion comes during execute of try block, catch will
 			// excute

@@ -25,11 +25,11 @@ public class User {
 	private String name;
 	
 	private String email;
-	private String username;
+	
 	private String password;
 	private String confirm;
 	private boolean enabled;
-	private String MobileNumber;
+	private long mobilenumber;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id")
@@ -57,14 +57,6 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
 	}
 
 	public String getPassword() {
@@ -99,12 +91,12 @@ public class User {
 		this.role = role;
 	}
 
-	public String getMobileNumber() {
-		return MobileNumber;
+	public long getMobilenumber() {
+		return mobilenumber;
 	}
 
-	public void setMobileNumber(String mobileNumber) {
-		MobileNumber = mobileNumber;
+	public void setMobilenumber(long mobilenumber) {
+		this.mobilenumber = mobilenumber;
 	}
 	
 

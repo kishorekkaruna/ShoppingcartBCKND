@@ -28,6 +28,7 @@ public class RoleDAOImpl implements RoleDAO{
 	public void save(Role role) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().saveOrUpdate(role);
+		
 	}
 
 	

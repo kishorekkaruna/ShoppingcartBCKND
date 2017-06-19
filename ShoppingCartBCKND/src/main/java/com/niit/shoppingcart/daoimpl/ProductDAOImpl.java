@@ -26,32 +26,32 @@ public class ProductDAOImpl implements ProductDAO {
 
 	
 	
-	public boolean save(Product product) {
+	public void save(Product product) {
 		// TODO Auto-generated method stub
-		try
-		{
-		sessionFactory.getCurrentSession().save(product);
-		}catch (Exception e) {
-			//if any excpetion comes during execute of try block, catch will excute
-			e.printStackTrace();
-			return false;
-		}
-		return true;
+		sessionFactory.getCurrentSession().saveOrUpdate(product);
 	}
-
-	
-
-	public boolean update(Product product) {
+	public void update(Product product) {
 		// TODO Auto-generated method stub
-		try
-		{
+	
 		sessionFactory.getCurrentSession().update(product);
-		}catch (Exception e) {
-			//if any excpetion comes during execute of try block, catch will excute
-			e.printStackTrace();
-			return false;
+	}
+	
+	@Transactional
+	public Product get(String pid) {
+
+		// get method get the date from category table based on primary key
+		// i.e., id
+		// and set it to Product class
+		// like select * from category where id = ?
+		String hql = "from Product where pid ='" + pid + "'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Product> listProduct = (List<Product>) (query).list();
+
+		if (listProduct != null && !listProduct.isEmpty()) {
+			return listProduct.get(0);
 		}
-		return true;
+		return null;
 	}
 	
 	
@@ -59,7 +59,7 @@ public class ProductDAOImpl implements ProductDAO {
 		
 		
 	Query query=	 sessionFactory.getCurrentSession().
-			createQuery(" from Product where id = ? and name = ?");
+			createQuery(" from Product where pid = ? and name = ?");
 	query.setString(0, id);     //actually the index will start from zero  - will get once exception.
 	query.setString(1, name);
 	
@@ -86,11 +86,32 @@ public class ProductDAOImpl implements ProductDAO {
 		return list;
 	}
 
-	
-	public Product get(String id) {
+
+
+	@Override
+	public void deleteById(String productId) {
 		// TODO Auto-generated method stub
-		return (Product)  sessionFactory.getCurrentSession().get(Product.class, id);
-	}	
+		Product productToDelete = new Product();
+		productToDelete.setPid(productId);
+		sessionFactory.getCurrentSession().delete(productToDelete);
+
+	}
+
+
+
+	@Override
+	public List<Product> getByCategory(String category) {
+		String hql = "from Product where category ='" + category + "'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Product> listProduct = (List<Product>) (query).list();
+
+		
+		return listProduct;
+	}
+
+	
+		
 	
 
 }

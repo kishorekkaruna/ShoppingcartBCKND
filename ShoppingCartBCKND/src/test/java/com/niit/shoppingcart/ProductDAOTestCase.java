@@ -43,14 +43,14 @@ public class ProductDAOTestCase {
 	public  void createProductDAOTestCase() {
 		// TODO Auto-generated method stub
 
-		product.setName("LevisShirt");
-		product.setPrice("1200");
+		product.setPname("LevisShirt");
+		product.setPrice(1200);
 		product.setCategory("Men");
-		boolean flag = productDAO.save(product);
+		 productDAO.save(product);
 
-		System.out.println(flag);
+		
 
-		assertEquals("createProductDAOTestCase", true, flag);
+		
 
 	}
 

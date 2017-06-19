@@ -25,7 +25,7 @@ public class Role {
 	private String username;
 	private String email;
 	private String role;
-	private String MobileNumber;
+	private long mobilenumber;
 	
 	public String getUsername() {
 		return username;
@@ -73,12 +73,13 @@ public class Role {
 		this.role = role;
 	}
 
-	public String getMobileNumber() {
-		return MobileNumber;
+	public long getMobilenumber() {
+		return mobilenumber;
 	}
 
-	public void setMobileNumber(String mobileNumber) {
-		MobileNumber = mobileNumber;
+	public void setMobilenumber(long mobilenumber) {
+		this.mobilenumber = mobilenumber;
 	}
 
+	
 }

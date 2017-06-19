@@ -26,4 +26,5 @@ public interface UserDAO {
 		
 		public User get(String id);
 		public User getMail(String email);
+		public boolean isAllReadyRegister(String email, boolean b);
 }
